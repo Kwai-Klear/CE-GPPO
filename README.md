@@ -1,5 +1,6 @@
-# ✨ CE-GPPO: Controlling Entropy Via Gradientpreserving Clipping Policy Optimization In Reinforcement Learning
-We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE-GPPO)**, a novel algorithm that reintroduces gradients from clipped tokens in native PPO in a gentle and bounded manner. By controlling the magnitude of gradients from tokens outside the clipping interval, CE-GPPO is able to achieve an explorationexploitation trade-off. We provide theoretical justification and empirical evidence showing that CE-GPPO effectively mitigates entropy instability. Extensive experiments on mathematical reasoning benchmarks show that CE-GPPO consistently outperforms strong baselines across different model scales.
+<div align="center">
+<h1>✨ CE-GPPO: Controlling Entropy via <br>Gradient-Preserving Clipping Policy Optimization <br>In Reinforcement Learning</h1>
+</div>
 
 
 <!-- ## 🚀 Quick Links
@@ -14,7 +15,6 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 | 🐛 Issues & Discussions | [GitHub Issues](https://github.com/klear-team/klear-reasoner/issues) |
 | 📧 Contact | klear-reasoner@kuaishou.com |
 
---- -->
 
 | Resource | Link |
 |---|---|
@@ -22,17 +22,27 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 | 🐛 Issues & Discussions | [GitHub Issues](https://github.com/Kwai-Klear/CE-GPPO/issues) |
 | 📧 Contact | suzhenpeng13@163.com |
 
+
 ---
+
+--- -->
+
+<div align="center">
+
+[![Paper](https://img.shields.io/badge/📄_Paper-arXiv-red.svg)](https://github.com/Kwai-Klear/CE-GPPO/blob/main/paper/CE-GPPO.pdf)
+[![Issues](https://img.shields.io/badge/🐛_Issues-GitHub-blue.svg)](https://github.com/Kwai-Klear/CE-GPPO/issues)
+[![Contact](https://img.shields.io/badge/📧_Contact-Email-green.svg)](mailto:suzhenpeng13@163.com)
+
+</div>
 
 
 ## 📌 Overview
 
+We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE-GPPO)**, a novel algorithm that reintroduces gradients from clipped tokens in native PPO in a gentle and bounded manner. By controlling the magnitude of gradients from tokens outside the clipping interval, CE-GPPO is able to achieve an explorationexploitation trade-off. We provide theoretical justification and empirical evidence showing that CE-GPPO effectively mitigates entropy instability. Extensive experiments on mathematical reasoning benchmarks show that CE-GPPO consistently outperforms strong baselines across different model scales.
 
-## 📐 CE-GPPO (Controlling Entropy Via Gradientpreserving Clipping Policy Optimization In Reinforcement Learning)
-
-## Motivation
+## 💡 Motivation
 <div align="center">
-<img src="./docker/CE-GPPO.png" width="100%"/>
+<img src="./docker/CE-GPPO.png" width="80%"/>
 </div>
 
 Reinforcement learning (RL) has become a central paradigm for fine-tuning large language models (LLMs). A key challenge lies in regulating **policy entropy**, which balances exploration and exploitation during training. Stable entropy is crucial: too little leads to premature convergence and loss of diversity (entropy collapse), while too much hinders convergence and wastes exploration (entropy explosion).
@@ -49,7 +59,7 @@ Standard PPO stabilizes training with clipping, but this mechanism discards grad
 
 To address this, we propose **CE-GPPO**, which reintroduces clipped gradients in a bounded and theoretically grounded way. By decoupling forward and backward passes with a stop-gradient operation and scaling coefficients, CE-GPPO incorporates gradients from out-of-clip tokens while preserving stability. This enables fine-grained entropy regulation and achieves a more effective balance between exploration and exploitation, preventing both collapse and explosion.
 
-### 🔍 Key Features
+## 🔍 Key Features
 
 - **Gradient Preservation**: Reintroduces gradients from clipped tokens (PA&LP and NA&LP) using stop-gradient and tunable scaling.
 - **Entropy Stability**: Prevents entropy collapse and explosion by dynamically regulating gradient magnitudes.
@@ -58,7 +68,9 @@ To address this, we propose **CE-GPPO**, which reintroduces clipped gradients in
 
 ---
 
-### 📊 Benchmark Results
+## 📊 Benchmark Results
+
+<div align="center">
 
 | Model                        | AIME24 | AIME25 | HMMT25 | MATH500 | AMC23 | Avg  |
 |-----------------------------|--------|--------|--------|---------|--------|------|
@@ -75,20 +87,21 @@ To address this, we propose **CE-GPPO**, which reintroduces clipped gradients in
 | **+CE-GPPO**               | **66.0** | **51.4** | **30.5** | **95.6** | **93.8** | **67.5** |
 
 
-<div align="center">
-<img src="./docker/CE-GPPO_main.png" width="100%"/>
+<img src="./docker/CE-GPPO_main.png" width="80%"/>
 </div>
+
+> CE-GPPO consistently outperforms all baselines, achieving +2.5 points improvement on 1.5B model and +3.0 points on 7B model compared to the strongest baseline (DAPO).
 
 ---
 
-### 🧠 Why CE-GPPO?
+## 🧠 Why CE-GPPO?
 
-- **Entropy Collapse**: Native PPO and GRPO often suffer from premature entropy decay, reducing output diversity.
-- **Entropy Explosion**: Over-exploration can delay convergence and destabilize training.
-- **Clipping Artifacts**: Ignoring clipped low-probability tokens removes valuable gradient signals.
-- **Solution**: CE-GPPO reintroduces these signals in a **controlled**, **stable**, and **efficient** way.
+- ❌ **Entropy Collapse**: Native PPO and GRPO often suffer from premature entropy decay, reducing output diversity.
+- ❌ **Entropy Explosion**: Over-exploration can delay convergence and destabilize training.
+- ❌ **Clipping Artifacts**: Ignoring clipped low-probability tokens removes valuable gradient signals.
+- ✅ **Solution**: CE-GPPO reintroduces these signals in a **controlled**, **stable**, and **efficient** way.
 
-### Implementation of GPPO
+## Implementation of GPPO
 
 The complete loss implementation is as follows:
 ```python
