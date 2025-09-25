@@ -322,7 +322,7 @@ def compute_score(
 
     # Limit solution length for efficiency
     # solution_str = solution_str[-300:]  # The longest answer in MATH-500 has 159 characters
-    solution_str = solution_str.split("</think>")[-1]
+    # solution_str = solution_str.split("</think>")[-1]
 
     # Verify the solution
     if not is_use_math_verify:

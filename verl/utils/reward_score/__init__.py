@@ -33,7 +33,7 @@ def _default_compute_score(data_source, solution_str, ground_truth, extra_info=N
         res = math_dapo.compute_score(solution_str, ground_truth)
     elif data_source == 'math_longcot':
         from . import math_dapo
-        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=True)
+        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=False)
     elif data_source in [
             'numina_aops_forum', 'numina_synthetic_math', 'numina_amc_aime', 'numina_synthetic_amc', 'numina_cn_k12',
             'numina_olympiads'
@@ -69,10 +69,10 @@ def dapo_wi_rllm_compute_score(data_source, solution_str, ground_truth, extra_in
         res = math_dapo.compute_score(solution_str, ground_truth, is_use_math_verify = True)
     elif data_source == 'math_longcot':
         from . import math_dapo
-        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=True, is_use_math_verify=False)
+        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=False, is_use_math_verify=False)
     elif 'math_longcot_math_verify' in data_source: # AIME2024(math_longcot_math_verify_aime2024) AIME2025(math_longcot_math_verify_aime2025) TrainingData(math_longcot_math_verify)
         from . import math_dapo
-        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=True, is_use_math_verify=True)
+        res = math_dapo.compute_score(solution_str, ground_truth, is_longcot=False, is_use_math_verify=True)
     elif data_source == "coder1":
         from . import code_r1_compute
         res = code_r1_compute.compute_score(solution_str, ground_truth, is_longcot = False)
@@ -84,7 +84,7 @@ def dapo_wi_rllm_compute_score(data_source, solution_str, ground_truth, extra_in
         res = math_stem.compute_score(solution_str, ground_truth)
     elif data_source == 'math_stem_longcot':
         from . import math_stem
-        res = math_stem.compute_score(solution_str, ground_truth, is_longcot=True)
+        res = math_stem.compute_score(solution_str, ground_truth, is_longcot=False)
     elif data_source in [
             "ifeval", "apps", "taco", "code_contests", "codeforces", "livecodebench", "kodcode", "leetcode", "primeintellect", "humanevalplus",
             "ifeval_longcot", "apps_longcot", "taco_longcot", "code_contests_longcot", "codeforces_longcot", "livecodebench_longcot", "kodcode_longcot", "leetcode_longcot", "primeintellect_longcot", "humanevalplus_longcot",
@@ -95,7 +95,7 @@ def dapo_wi_rllm_compute_score(data_source, solution_str, ground_truth, extra_in
             res = rllm_reward_fn_code(data_source, solution_str, ground_truth, is_longcot=False)
         else:
             data_source = data_source.replace("_longcot","")
-            res = rllm_reward_fn_code(data_source, solution_str, ground_truth, is_longcot=True)
+            res = rllm_reward_fn_code(data_source, solution_str, ground_truth, is_longcot=False)
     else:
         raise NotImplementedError(f"Reward function is not implemented for {data_source=}")
 
