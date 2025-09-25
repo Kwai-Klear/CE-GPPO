@@ -30,6 +30,7 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 
 ## 📐 CE-GPPO (Controlling Entropy Via Gradientpreserving Clipping Policy Optimization In Reinforcement Learning)
 
+## Motivation
 <div align="center">
 <img src="./docker/CE-GPPO.png" width="100%"/>
 
