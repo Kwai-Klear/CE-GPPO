@@ -179,7 +179,7 @@ pip install -r requirements.txt
 For the code, we use [Firejail](https://github.com/netblue30/firejail) for the **sandbox** environment. Additionally, we implemented multi-process control based on [Pebble](https://github.com/noxdafox/pebble), enabling automatic resource reclamation upon task timeout. For mathematics, we use [math_verify](https://github.com/huggingface/Math-Verify) for judging.
 
 ### Download a pre-trained checkpoint & data
-We trained our model based on [DeepSeek-R1-Distill-Qwen-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) and [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), using the [KlearReasoner-MathSub-30K](https://huggingface.co/datasets/Kwai-Klear/KlearReasoner-MathSub-30K) dataset for training, with AIME2024 and AIME2025 as the validation sets.
+We trained our model based on [DeepSeek-R1-Distill-Qwen-7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B) and [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), using the [KlearReasoner-MathSub-30K](https://huggingface.co/datasets/Kwai-Klear/KlearReasoner-MathSub-30K) dataset for training, with [AIME2024](https://github.com/Kwai-Klear/CE-GPPO/blob/main/benchmarks/aime960_math_verify.json) and [AIME2025](https://github.com/Kwai-Klear/CE-GPPO/blob/main/benchmarks/aime960_math_verify25.json) as the validation sets.
 
 ### Using Ray for Multi-Node Training
 For multi-node training​​, ensure ​​all nodes are started and connected via Ray​​ before executing the training script. Below is a brief setup guide for Ray across multiple machines:
@@ -219,10 +219,6 @@ CKPTS_SAVE_DIR="<ckpts_save_path>"
 YOUR_TRAIN_FILE="<train_data_path>"
 YOUR_TEST_FILE="<test_data_path>"
 ```
-
-It is worth noting that for training stability, if you train with a sequence length shorter than 32K, we recommend enabling **actor_rollout_ref.actor.overlong_filter=True**, as this filters out samples in the rollout that exceed the maximum sequence length. 
-
-We observed that when training with a 32K sequence length, the model can still optimize stably even with actor_rollout_ref.actor.overlong_filter=False. However, if the maximum sequence length is reduced to 16K, training becomes highly unstable, regardless of whether GPPO or GRPO is used.
 
 
 ---
