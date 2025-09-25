@@ -33,7 +33,6 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 ## Motivation
 <div align="center">
 <img src="./docker/CE-GPPO.png" width="100%"/>
-
 </div>
 
 Traditional policy gradient methods like PPO often discard gradient signals from low-probability tokens due to clipping, leading to entropy collapse or entropy explosion—both of which harm exploration and model performance. CE-GPPO reintroduces these clipped gradients in a bounded and theoretically grounded way, enabling fine-grained control over policy entropy and balancing exploration and exploitation throughout training.
@@ -62,6 +61,11 @@ Traditional policy gradient methods like PPO often discard gradient signals from
 | +GRPO                       | 55.3   | 40.3   | 24.5   | 93.7    | 88.8   | 60.5 |
 | +DAPO                       | 59.7   | 48.7   | 25.6   | 95.1    | 93.4   | 64.5 |
 | **+CE-GPPO**               | **66.0** | **51.4** | **30.5** | **95.6** | **93.8** | **67.5** |
+
+
+<div align="center">
+<img src="./docker/CE-GPPO_main.png" width="100%"/>
+</div>
 
 ---
 
