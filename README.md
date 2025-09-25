@@ -33,10 +33,9 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 <div align="center">
 <img src="./docker/CE-GPPO.png" width="100%"/>
 
-<sub>Benchmark accuracy of Klear-Reasoner-8B on AIME 2024/2025 (avg@64), LiveCodeBench V5 (2024/08/01-2025/02/01, avg@8), and v6 (2025/02/01-2025/05/01, avg@8).</sub>
 </div>
 
-GPPO is a **plug-and-play** replacement for PPO/GRPO that keeps the clipped tokens **in the computational graph** and lets their gradients flow in a **bounded, controlled** way.
+Traditional policy gradient methods like PPO often discard gradient signals from low-probability tokens due to clipping, leading to entropy collapse or entropy explosion—both of which harm exploration and model performance. CE-GPPO reintroduces these clipped gradients in a bounded and theoretically grounded way, enabling fine-grained control over policy entropy and balancing exploration and exploitation throughout training.
 
 ### 🔍 Key Features
 
