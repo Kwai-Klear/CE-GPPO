@@ -30,6 +30,12 @@ We propose Controlling Entropy via **Gradient-Preserving Policy Optimization (CE
 
 ## 📐 CE-GPPO (Controlling Entropy Via Gradientpreserving Clipping Policy Optimization In Reinforcement Learning)
 
+<div align="center">
+<img src="./docker/CE-GPPO.png" width="100%"/>
+
+<sub>Benchmark accuracy of Klear-Reasoner-8B on AIME 2024/2025 (avg@64), LiveCodeBench V5 (2024/08/01-2025/02/01, avg@8), and v6 (2025/02/01-2025/05/01, avg@8).</sub>
+</div>
+
 GPPO is a **plug-and-play** replacement for PPO/GRPO that keeps the clipped tokens **in the computational graph** and lets their gradients flow in a **bounded, controlled** way.
 
 ### 🔍 Key Features
