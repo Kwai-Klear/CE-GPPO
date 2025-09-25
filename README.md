@@ -2,24 +2,9 @@
 We propose Controlling Entropy via **Gradient-Preserving Policy Optimization (CE-GPPO)**, a novel algorithm that reintroduces gradients from clipped tokens in native PPO in a gentle and bounded manner. By controlling the magnitude of gradients from tokens outside the clipping interval, CE-GPPO is able to achieve an explorationexploitation trade-off. We provide theoretical justification and empirical evidence showing that CE-GPPO effectively mitigates entropy instability. Extensive experiments on mathematical reasoning benchmarks show that CE-GPPO consistently outperforms strong baselines across different model scales.
 
 
-<!-- ## 🚀 Quick Links
 | Resource | Link |
 |---|---|
-| 📝 Preprints | [Paper](https://arxiv.org/pdf/2508.07629) |
-| 🤗 Model Hub | [Klear-Reasoner-8B](https://huggingface.co/klear-team/klear-reasoner-8b-SFT) |
-| 🤗 Model Hub | [Klear-Reasoner-8B](https://huggingface.co/klear-team/klear-reasoner-8b) |
-| 🤗 Dataset Hub | [Math RL](https://huggingface.co/datasets/Suu/KlearReasoner-MathSub-30K) |
-| 🤗 Dataset Hub | [Code RL](https://huggingface.co/datasets/Suu/KlearReasoner-CodeSub-Rllm-Cleaned) |
-| 📄 Technical Report | [arXiv:250x.xxxxx](https://arxiv.org/abs/250x.xxxxx) |
-| 🐛 Issues & Discussions | [GitHub Issues](https://github.com/klear-team/klear-reasoner/issues) |
-| 📧 Contact | klear-reasoner@kuaishou.com |
-
---- -->
-
-| Resource | Link |
-|---|---|
-| 📝 Preprints | [Paper](https://arxiv.org/pdf/2508.07629) |
-| 🤗 Dataset Hub | [Math RL](https://huggingface.co/datasets/Kwai-Klear/KlearReasoner-MathSub-30K) |
+| 📝 Preprints | [Paper]([https://arxiv.org/pdf/2508.07629](https://github.com/Kwai-Klear/CE-GPPO/blob/main/paper/CE-GPPO.pdf)) |
 | 🐛 Issues & Discussions | [GitHub Issues](https://github.com/Kwai-Klear/CE-GPPO/issues) |
 | 📧 Contact | suzhenpeng13@163.com |
 
