@@ -35,7 +35,19 @@ We propose **Controlling Entropy via Gradient-Preserving Policy Optimization (CE
 <img src="./docker/CE-GPPO.png" width="100%"/>
 </div>
 
-Traditional policy gradient methods like PPO often discard gradient signals from low-probability tokens due to clipping, leading to entropy collapse or entropy explosion—both of which harm exploration and model performance. CE-GPPO reintroduces these clipped gradients in a bounded and theoretically grounded way, enabling fine-grained control over policy entropy and balancing exploration and exploitation throughout training.
+Reinforcement learning (RL) has become a central paradigm for fine-tuning large language models (LLMs). A key challenge lies in regulating **policy entropy**, which balances exploration and exploitation during training. Stable entropy is crucial: too little leads to premature convergence and loss of diversity (entropy collapse), while too much hinders convergence and wastes exploration (entropy explosion).
+
+Our analysis shows that entropy dynamics arise from the interaction between the advantage function and the token probability distribution, which can be categorized into four patterns:
+
+- **PA&HP** (Positive-Advantage High-Probability) and **NA&LP** (Negative-Advantage Low-Probability) tokens: reinforce dominant actions, accelerating convergence but driving entropy collapse.
+- **PA&LP** (Positive-Advantage Low-Probability) and **NA&HP** (Negative-Advantage High-Probability) tokens: encourage exploration of unlikely actions, maintaining diversity and mitigating entropy collapse.
+
+Standard PPO stabilizes training with clipping, but this mechanism discards gradients from low-probability tokens outside the clip interval. These overlooked signals, particularly from PA&LP and NA&LP tokens, are critical for entropy control. Ignoring them leads to unstable training:
+
+- **Entropy collapse** arises when PA&LP gradients are suppressed, restricting exploration.
+- **Entropy explosion** arises when NA&LP gradients are removed, overemphasizing exploration and delaying convergence.
+
+To address this, we propose **CE-GPPO**, which reintroduces clipped gradients in a bounded and theoretically grounded way. By decoupling forward and backward passes with a stop-gradient operation and scaling coefficients, CE-GPPO incorporates gradients from out-of-clip tokens while preserving stability. This enables fine-grained entropy regulation and achieves a more effective balance between exploration and exploitation, preventing both collapse and explosion.
 
 ### 🔍 Key Features
 
