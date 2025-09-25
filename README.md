@@ -77,9 +77,6 @@ Traditional policy gradient methods like PPO often discard gradient signals from
 - **Solution**: CE-GPPO reintroduces these signals in a **controlled**, **stable**, and **efficient** way.
 
 ### Implementation of GPPO
-The loss of GPPO only requires modifying **one line of code** based on the PPO/GPPO loss:
-
-*-advantages * torch.clamp(ratio, (1 - cliprange_low) / **ratio.detach() * ratio**, (1 + cliprange_high) / **ratio.detach() * ratio**)*
 
 The complete loss implementation is as follows:
 ```python
@@ -93,7 +90,7 @@ def compute_gppo_loss_general_beta(
     cliprange_high=None,
     clip_ratio_c=3.0,
     loss_agg_mode="token-mean",
-    gppo_loss_beta1=0.25,
+    gppo_loss_beta1=0.75,
     gppo_loss_beta2=1.0
 ):
     """Adapted from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1122
