@@ -18,7 +18,7 @@
 
 | Resource | Link |
 |---|---|
-| 📝 Preprints | [Paper](https://github.com/Kwai-Klear/CE-GPPO/blob/main/paper/CE-GPPO.pdf) |
+| 📝 Preprints | [Paper](https://arxiv.org/pdf/2509.20712) |
 | 🐛 Issues & Discussions | [GitHub Issues](https://github.com/Kwai-Klear/CE-GPPO/issues) |
 | 📧 Contact | suzhenpeng13@163.com |
 
