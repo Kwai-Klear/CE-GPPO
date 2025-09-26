@@ -29,7 +29,7 @@
 
 <div align="center">
 
-[![Paper](https://img.shields.io/badge/📄_Paper-arXiv-red.svg)](https://github.com/Kwai-Klear/CE-GPPO/blob/main/paper/CE-GPPO.pdf)
+[![Paper](https://img.shields.io/badge/📄_Paper-arXiv-red.svg)](https://arxiv.org/pdf/2509.20712)
 [![Issues](https://img.shields.io/badge/🐛_Issues-GitHub-blue.svg)](https://github.com/Kwai-Klear/CE-GPPO/issues)
 [![Contact](https://img.shields.io/badge/📧_Contact-Email-green.svg)](mailto:suzhenpeng13@163.com)
 
