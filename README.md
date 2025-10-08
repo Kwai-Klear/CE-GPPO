@@ -1,5 +1,5 @@
 <div align="center">
-<h1>✨ CE-GPPO: Controlling Entropy via <br>Gradient-Preserving Clipping Policy Optimization <br>In Reinforcement Learning</h1>
+<h1>✨ CE-GPPO: Coordinating Entropy via Gradient-Preserving Clipping Policy Optimization in Reinforcement Learning</h1>
 </div>
 
 
